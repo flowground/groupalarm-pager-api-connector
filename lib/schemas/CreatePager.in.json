@@ -1,0 +1,39 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "A PagerCreationRequest is used to create a new pager",
+            "type": "object",
+            "properties": {
+                "active": {
+                    "description": "true, if this configuration can be used for alarm notifications",
+                    "type": "boolean",
+                    "x-go-name": "Active"
+                },
+                "name": {
+                    "description": "user defined name for this configuration",
+                    "type": "string",
+                    "x-go-name": "Name"
+                },
+                "organizationId": {
+                    "description": "assigned organization",
+                    "type": "integer",
+                    "format": "int64",
+                    "x-go-name": "OrganizationID"
+                },
+                "serialNumber": {
+                    "description": "serial number for pager messages",
+                    "type": "string",
+                    "x-go-name": "SerialNumber"
+                },
+                "userId": {
+                    "description": "assigned user (optional)",
+                    "type": "integer",
+                    "format": "int64",
+                    "x-go-name": "UserID"
+                }
+            },
+            "x-go-package": "groupalarm.com/go/pager/api/services"
+        }
+    }
+}

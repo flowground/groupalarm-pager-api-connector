@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "A PagerRequest is required to implement Format() to create a HMSgr-compatible message",
+            "type": "object",
+            "x-go-package": "groupalarm.com/go/pager/common"
+        }
+    }
+}

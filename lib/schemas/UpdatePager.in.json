@@ -1,0 +1,123 @@
+{
+    "type": "object",
+    "properties": {
+        "pagerID": {
+            "required": true,
+            "type": "int64"
+        },
+        "requestBody": {
+            "description": "A Pager represents a pager configuration",
+            "type": "object",
+            "properties": {
+                "active": {
+                    "description": "true, if this configuration can be used for alarm notifications",
+                    "type": "boolean",
+                    "x-go-name": "Active"
+                },
+                "id": {
+                    "description": "id for this configuration",
+                    "type": "integer",
+                    "format": "int64",
+                    "x-go-name": "ID"
+                },
+                "name": {
+                    "description": "user defined name for this configuration",
+                    "type": "string",
+                    "x-go-name": "Name"
+                },
+                "serialNumber": {
+                    "description": "serial number for pager messages",
+                    "type": "string",
+                    "x-go-name": "SerialNumber"
+                },
+                "status": {
+                    "description": "PublicPagerStatusResponse is used to remove critical information from a PagerStatusResponse",
+                    "type": "object",
+                    "properties": {
+                        "battery": {
+                            "description": "PagerStatusBattery contains information about the pager's battery",
+                            "type": "object",
+                            "properties": {
+                                "level": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "x-go-name": "Level"
+                                },
+                                "status": {
+                                    "description": "BatteryStatus is a custom int representing the status of a pager's battery",
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "x-go-package": "groupalarm.com/go/pager/common"
+                                },
+                                "voltage": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "x-go-name": "Voltage"
+                                }
+                            },
+                            "x-go-package": "groupalarm.com/go/pager/common"
+                        },
+                        "configID": {
+                            "type": "string",
+                            "x-go-name": "ConfigID"
+                        },
+                        "group": {
+                            "type": "string",
+                            "x-go-name": "Group"
+                        },
+                        "gsm": {
+                            "type": "string",
+                            "x-go-name": "GSM"
+                        },
+                        "lastAlarmID": {
+                            "type": "string",
+                            "x-go-name": "LastAlarmID"
+                        },
+                        "pagerSerialNumber": {
+                            "type": "string",
+                            "x-go-name": "PagerSerialNumber"
+                        },
+                        "signalStrength": {
+                            "type": "integer",
+                            "format": "int64",
+                            "x-go-name": "SignalStrength"
+                        },
+                        "time": {
+                            "type": "string",
+                            "format": "date-time",
+                            "x-go-name": "Time"
+                        },
+                        "username": {
+                            "type": "string",
+                            "x-go-name": "Username"
+                        },
+                        "version": {
+                            "description": "PagerStatusVersion contains information about the pager's soft- and hardware versions",
+                            "type": "object",
+                            "properties": {
+                                "hardware": {
+                                    "type": "string",
+                                    "x-go-name": "Hardware"
+                                },
+                                "software": {
+                                    "type": "string",
+                                    "x-go-name": "Software"
+                                }
+                            },
+                            "x-go-package": "groupalarm.com/go/pager/common"
+                        }
+                    },
+                    "x-go-name": "PublicPagerStatusResponse",
+                    "x-go-package": "groupalarm.com/go/pager/common"
+                },
+                "userId": {
+                    "description": "assigned user",
+                    "type": "integer",
+                    "format": "int64",
+                    "x-go-name": "UserID"
+                }
+            },
+            "x-go-package": "groupalarm.com/go/pager/api/services"
+        }
+    }
+}

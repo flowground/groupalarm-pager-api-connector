@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "organization_id": {
+            "required": true,
+            "type": "int64"
+        },
+        "requestBody": {
+            "description": "IsDisabled is the request and response of requests via the api",
+            "type": "object",
+            "properties": {
+                "isDisabled": {
+                    "type": "boolean",
+                    "x-go-name": "IsDisabled"
+                }
+            },
+            "x-go-package": "groupalarm.com/go/pager/api/services"
+        }
+    }
+}

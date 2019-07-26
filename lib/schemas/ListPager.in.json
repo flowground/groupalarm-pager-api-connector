@@ -1,0 +1,11 @@
+{
+    "type": "object",
+    "properties": {
+        "owner_id": {
+            "type": "int64"
+        },
+        "organization_id": {
+            "type": "int64"
+        }
+    }
+}

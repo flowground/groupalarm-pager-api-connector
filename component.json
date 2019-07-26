@@ -1,0 +1,333 @@
+{
+    "title": "groupalarm Pager API",
+    "description": "The pager service implements all pager functions for GroupAlarm\n\n# Authentication\n\n<!-- ReDoc-Inject: <security-definitions> -->",
+    "docsUrl": "",
+    "url": "https://app.groupalarm.com/api/v1/pager",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://app.groupalarm.com/api/v1/pager",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "auth_API_Token": {
+                "label": "API-TOKEN (API_Token)",
+                "viewClass": "TextFieldView",
+                "note": "To use this API, you need an API-Token from the RBAC settings of your GroupAlarm organization. Place the token inside the HTTP-Header `API-Token` for every request, otherwise the API will return an \"401 Unauthorized\" error for your request."
+            },
+            "auth_Personal-Access-Token": {
+                "label": "Personal-Access-Token (Personal-Access-Token)",
+                "viewClass": "TextFieldView",
+                "note": "To use this API, you need a Personal Access Token from your profile settings. Place the token inside the HTTP-Header `Personal-Access-Token` for every request, otherwise the API will return an \"401 Unauthorized\" error for your request."
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "ListPager": {
+            "main": "./lib/actions/ListPager.js",
+            "title": "ListPager",
+            "description": "Returns all pagers for current user or given organization",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListPager.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreatePager": {
+            "main": "./lib/actions/CreatePager.js",
+            "title": "CreatePager",
+            "description": "Create a pager configuration in the given organization",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreatePager.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetPager": {
+            "main": "./lib/actions/GetPager.js",
+            "title": "GetPager",
+            "description": "Returns all information about the pager and the current status data",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetPager.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdatePager": {
+            "main": "./lib/actions/UpdatePager.js",
+            "title": "UpdatePager",
+            "description": "Updates an existing pager configuration",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdatePager.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RemovePagerFromOrganization": {
+            "main": "./lib/actions/RemovePagerFromOrganization.js",
+            "title": "RemovePagerFromOrganization",
+            "description": "Remove a pager from the given organization",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RemovePagerFromOrganization.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AssignPagerToUser": {
+            "main": "./lib/actions/AssignPagerToUser.js",
+            "title": "AssignPagerToUser",
+            "description": "Set a pager as personal device of the given user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AssignPagerToUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDisabledOrganization": {
+            "main": "./lib/actions/GetDisabledOrganization.js",
+            "title": "GetDisabledOrganization",
+            "description": "Returns whether the given organization has disabled this way of alarming or not",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDisabledOrganization.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SetDisabledOrganization": {
+            "main": "./lib/actions/SetDisabledOrganization.js",
+            "title": "SetDisabledOrganization",
+            "description": "Sets whether the given organization has this way of alarming disabled or not",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SetDisabledOrganization.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Init": {
+            "main": "./lib/actions/Init.js",
+            "title": "Init",
+            "description": "Force a pager to init itself again",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Init.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Lock": {
+            "main": "./lib/actions/Lock.js",
+            "title": "Lock",
+            "description": "Lock the pager and prevent any further use",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Lock.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Reset": {
+            "main": "./lib/actions/Reset.js",
+            "title": "Reset",
+            "description": "Force a pager to reset (to default settings)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Reset.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Status": {
+            "main": "./lib/actions/Status.js",
+            "title": "Status",
+            "description": "Request a status update from the pager",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Status.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Alarm": {
+            "main": "./lib/actions/Alarm.js",
+            "title": "Alarm",
+            "description": "Send the given text like an alarm onto the pager's display",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Alarm.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Display": {
+            "main": "./lib/actions/Display.js",
+            "title": "Display",
+            "description": "Display the given text on the pager's display",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Display.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Unlock": {
+            "main": "./lib/actions/Unlock.js",
+            "title": "Unlock",
+            "description": "Unlock the pager and allow usage",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Unlock.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Update": {
+            "main": "./lib/actions/Update.js",
+            "title": "Update",
+            "description": "Force a pager to run an update",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Statistics": {
+            "main": "./lib/actions/Statistics.js",
+            "title": "Statistics",
+            "description": "Returns pager statistics for given organization",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Statistics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "properties": {
+        "pagerID": {
+            "required": true,
+            "type": "int64"
+        },
+        "userID": {
+            "required": true,
+            "type": "int64"
+        },
+        "organization_id": {
+            "type": "int64"
+        }
+    }
+}

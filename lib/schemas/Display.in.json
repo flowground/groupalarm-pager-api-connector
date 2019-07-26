@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "A PagerRequestTextDisplay is a pager management request to display a text on the display",
+            "type": "object",
+            "properties": {
+                "organizationId": {
+                    "description": "organization, which is managing this pager",
+                    "type": "integer",
+                    "format": "int64",
+                    "x-go-name": "OrganizationID"
+                },
+                "pagerIds": {
+                    "description": "list of receiving pager-ids",
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "x-go-name": "PagerIDs"
+                },
+                "text": {
+                    "description": "text to display",
+                    "type": "string",
+                    "x-go-name": "Text"
+                }
+            },
+            "x-go-package": "groupalarm.com/go/pager/api/handler"
+        }
+    }
+}
